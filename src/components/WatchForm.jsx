@@ -13,22 +13,22 @@ export default function WatchForm({ onAdd }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex gap-2 mb-4">
+    <form onSubmit={handleSubmit} style={{ display: 'flex', gap: '8px', marginBottom: '16px' }}>
       <input
         type="text"
         value={city}
         onChange={(e) => setCity(e.target.value)}
         placeholder="City"
-        className="border p-2 rounded"
+        style={{ border: '1px solid #ccc', padding: '8px', borderRadius: '4px', flex: 1 }}
       />
       <input
         type="number"
         value={timezone}
         onChange={(e) => setTimezone(e.target.value)}
         placeholder="Timezone offset"
-        className="border p-2 rounded w-32"
+        style={{ border: '1px solid #ccc', padding: '8px', borderRadius: '4px', width: '120px' }}
       />
-      <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded">
+      <button type="submit" style={{ backgroundColor: '#3b82f6', color: 'white', padding: '8px 16px', borderRadius: '4px', border: 'none' }}>
         Add
       </button>
     </form>

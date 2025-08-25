@@ -14,8 +14,8 @@ function App() {
   };
 
   return (
-    <div className="p-6 max-w-md mx-auto">
-      <h1 className="text-2xl font-bold mb-4">World Clock</h1>
+    <div style={{ padding: '24px', maxWidth: '500px', margin: '0 auto' }}>
+      <h1 style={{ fontSize: '24px', fontWeight: 'bold', marginBottom: '16px' }}>World Clock</h1>
       <WatchForm onAdd={handleAdd} />
       <WatchList watches={watches} onRemove={handleRemove} />
     </div>

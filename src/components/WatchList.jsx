@@ -2,7 +2,7 @@ import Watch from "./Watch";
 
 export default function WatchList({ watches, onRemove }) {
   return (
-    <div>
+    <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
       {watches.map((w) => (
         <Watch
           key={w.city}
