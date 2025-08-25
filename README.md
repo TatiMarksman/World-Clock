@@ -1,70 +1,69 @@
-# Getting Started with Create React App
+# World Clock
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Dünya saatlerini görüntüleyebileceğiniz basit ve kullanışlı bir React uygulaması.
 
-## Available Scripts
+## Özellikler
 
-In the project directory, you can run:
+- Farklı şehirler için gerçek zamanlı saat gösterimi
+- Yeni şehir ekleme
+- Şehir silme
+- Responsive tasarım
+- Modern ve hızlı arayüz
 
-### `npm start`
+## Kurulum
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```bash
+# Projeyi klonlayın
+git clone https://github.com/TatiMarksman/World-Clock.git
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+# Proje dizinine gidin
+cd World-Clock
 
-### `npm test`
+# Bağımlılıkları yükleyin
+npm install
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Uygulamayı başlatın
+npm start
+```
 
-### `npm run build`
+Uygulama http://localhost:3000 adresinde açılacaktır.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Kullanım
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. **Şehir Ekleme**: Form alanlarına şehir adı ve saat dilimi (UTC offset) girin
+2. **Örnek Saat Dilimleri**:
+   - İstanbul: `3` (UTC+3)
+   - New York: `-5` (UTC-5)
+   - Tokyo: `9` (UTC+9)
+   - Londra: `0` (UTC+0)
+3. **Şehir Silme**: Saatin yanındaki ✕ butonuna tıklayın
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Teknolojiler
 
-### `npm run eject`
+- React - Kullanıcı arayüzü
+- Tailwind CSS - Styling
+- JavaScript ES6+ - Modern JavaScript özellikleri
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Proje Yapısı
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+src/
+├── components/
+│   ├── Watch.jsx      # Tek şehir saati bileşeni
+│   ├── WatchForm.jsx  # Yeni şehir ekleme formu
+│   └── WatchList.jsx  # Saatleri listeleme bileşeni
+├── App.js             # Ana uygulama bileşeni
+└── index.js           # Uygulama giriş noktası
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Katkıda Bulunma
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. Bu repository'yi fork edin
+2. Yeni bir branch oluşturun (`git checkout -b feature/yeni-ozellik`)
+3. Değişikliklerinizi commit edin (`git commit -m 'Yeni özellik eklendi'`)
+4. Branch'inizi push edin (`git push origin feature/yeni-ozellik`)
+5. Pull Request oluşturun
 
-## Learn More
+## Lisans
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Bu proje MIT lisansı altında lisanslanmıştır.
