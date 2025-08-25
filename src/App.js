@@ -1,23 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import WatchForm from "./components/WatchForm";
+import WatchList from "./components/WatchList";
 
 function App() {
+  const [watches, setWatches] = useState([]);
+
+  const handleAdd = (city, timezone) => {
+    setWatches([...watches, { city, timezone }]);
+  };
+
+  const handleRemove = (city) => {
+    setWatches(watches.filter((w) => w.city !== city));
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="p-6 max-w-md mx-auto">
+      <h1 className="text-2xl font-bold mb-4">World Clock</h1>
+      <WatchForm onAdd={handleAdd} />
+      <WatchList watches={watches} onRemove={handleRemove} />
     </div>
   );
 }
