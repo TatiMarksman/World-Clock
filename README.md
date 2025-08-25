@@ -1,69 +1,49 @@
 # World Clock
 
-Dünya saatlerini görüntüleyebileceğiniz basit ve kullanışlı bir React uygulaması.
+A simple and useful React application to display world clocks.
 
-## Özellikler
+## Features
 
-- Farklı şehirler için gerçek zamanlı saat gösterimi
-- Yeni şehir ekleme
-- Şehir silme
-- Responsive tasarım
-- Modern ve hızlı arayüz
+- Real-time clock display for different cities
+- Add new cities
+- Remove cities
+- Responsive design
+- Modern and fast interface
 
-## Kurulum
+## Getting Started
 
 ```bash
-# Projeyi klonlayın
+# Clone the project
 git clone https://github.com/TatiMarksman/World-Clock.git
 
-# Proje dizinine gidin
+# Navigate to project directory
 cd World-Clock
 
-# Bağımlılıkları yükleyin
+# Install dependencies
 npm install
 
-# Uygulamayı başlatın
+# Start the application
 npm start
 ```
 
-Uygulama http://localhost:3000 adresinde açılacaktır.
+The application will open at http://localhost:3000
 
-## Kullanım
+## Usage
 
-1. **Şehir Ekleme**: Form alanlarına şehir adı ve saat dilimi (UTC offset) girin
-2. **Örnek Saat Dilimleri**:
-   - İstanbul: `3` (UTC+3)
+1. **Add City**: Enter city name and timezone offset (UTC) in the form fields
+2. **Example Timezones**:
+   - Istanbul: `3` (UTC+3)
    - New York: `-5` (UTC-5)
    - Tokyo: `9` (UTC+9)
-   - Londra: `0` (UTC+0)
-3. **Şehir Silme**: Saatin yanındaki ✕ butonuna tıklayın
+   - London: `0` (UTC+0)
+3. **Remove City**: Click the ✕ button next to the clock
 
-## Teknolojiler
+## Build Status
 
-- React - Kullanıcı arayüzü
+![Build Status](https://img.shields.io/badge/build-passing-brightgreen)
+
+## Technologies
+
+- React - User interface
 - Tailwind CSS - Styling
-- JavaScript ES6+ - Modern JavaScript özellikleri
-
-## Proje Yapısı
-
-```
-src/
-├── components/
-│   ├── Watch.jsx      # Tek şehir saati bileşeni
-│   ├── WatchForm.jsx  # Yeni şehir ekleme formu
-│   └── WatchList.jsx  # Saatleri listeleme bileşeni
-├── App.js             # Ana uygulama bileşeni
-└── index.js           # Uygulama giriş noktası
-```
-
-## Katkıda Bulunma
-
-1. Bu repository'yi fork edin
-2. Yeni bir branch oluşturun (`git checkout -b feature/yeni-ozellik`)
-3. Değişikliklerinizi commit edin (`git commit -m 'Yeni özellik eklendi'`)
-4. Branch'inizi push edin (`git push origin feature/yeni-ozellik`)
-5. Pull Request oluşturun
-
-## Lisans
-
-Bu proje MIT lisansı altında lisanslanmıştır.
+- JavaScript ES6+ - Modern JavaScript features
