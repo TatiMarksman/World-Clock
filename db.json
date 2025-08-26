@@ -1,0 +1,14 @@
+{
+  "watches": [
+    {
+      "id": 1,
+      "city": "Moscow",
+      "timezone": 3
+    },
+    {
+      "id": 2,
+      "city": "London",
+      "timezone": 0
+    }
+  ]
+}

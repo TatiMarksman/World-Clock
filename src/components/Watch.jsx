@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export default function Watch({ city, timezone, onRemove }) {
+export default function Watch({ id, city, timezone, onRemove }) {
   const [time, setTime] = useState(new Date());
 
   useEffect(() => {
@@ -11,14 +11,15 @@ export default function Watch({ city, timezone, onRemove }) {
     return () => clearInterval(tick);
   }, []);
 
-  // Basit ve doğru zaman hesaplama
-  const now = new Date();
-  const utcTime = now.getTime() + (now.getTimezoneOffset() * 60000);
-  const targetTime = new Date(utcTime + (timezone * 3600000));
-  
-  const hours = targetTime.getHours() % 12;
-  const minutes = targetTime.getMinutes();
-  const seconds = targetTime.getSeconds();
+  // Hocanın önerdiği doğru zaman hesaplama yöntemi
+  // UTC'den hesaplama - çift sayma sorununu önler
+  const h24 = (time.getUTCHours() + timezone + 24) % 24;
+  const m = time.getUTCMinutes();
+  const s = time.getUTCSeconds();
+
+  const hours = h24 % 12;
+  const minutes = m;
+  const seconds = s;
 
   // Doğru açı hesaplamaları - 12 o'clock = 0 derece, saat yönünde
   const hourAngle = (hours * 30) + (minutes * 0.5); // Saat başına 30 derece + dakika başına 0.5 derece
@@ -113,7 +114,7 @@ export default function Watch({ city, timezone, onRemove }) {
       <div style={{ marginTop: '8px', fontWeight: 'bold' }}>{city}</div>
       
       <button
-        onClick={() => onRemove(city)}
+        onClick={() => onRemove(id)}
         style={{
           position: 'absolute',
           top: '-5px',
