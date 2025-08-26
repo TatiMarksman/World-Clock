@@ -11,15 +11,16 @@ export default function Watch({ city, timezone, onRemove }) {
     return () => clearInterval(tick);
   }, []);
 
-  const localTime = new Date(
-    time.getTime() + timezone * 60 * 60 * 1000
-  );
+  // Basit ve doğru zaman hesaplama
+  const now = new Date();
+  const utcTime = now.getTime() + (now.getTimezoneOffset() * 60000);
+  const targetTime = new Date(utcTime + (timezone * 3600000));
+  
+  const hours = targetTime.getHours() % 12;
+  const minutes = targetTime.getMinutes();
+  const seconds = targetTime.getSeconds();
 
-  const hours = localTime.getHours() % 12;
-  const minutes = localTime.getMinutes();
-  const seconds = localTime.getSeconds();
-
-  // Açı hesaplamalarını düzeltiyorum
+  // Doğru açı hesaplamaları - 12 o'clock = 0 derece, saat yönünde
   const hourAngle = (hours * 30) + (minutes * 0.5); // Saat başına 30 derece + dakika başına 0.5 derece
   const minuteAngle = minutes * 6; // Dakika başına 6 derece
   const secondAngle = seconds * 6; // Saniye başına 6 derece
@@ -39,48 +40,44 @@ export default function Watch({ city, timezone, onRemove }) {
         position: 'relative',
         backgroundColor: 'white'
       }}>
-        {/* Saat işaretleri */}
-        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((num) => (
-          <div
-            key={num}
-            style={{
-              position: 'absolute',
-              width: '2px',
-              height: '8px',
-              backgroundColor: '#333',
-              left: '50%',
-              top: '8px',
-              transformOrigin: '50% 52px',
-              transform: `rotate(${num * 30}deg) translateX(-50%)`
-            }}
-          />
-        ))}
+        {/* Saat işaretleri - sadece alt kısımda kesik çizgi */}
+        <div
+          style={{
+            position: 'absolute',
+            width: '20px',
+            height: '2px',
+            backgroundColor: '#333',
+            left: '50%',
+            bottom: '10px',
+            transform: 'translateX(-50%)'
+          }}
+        />
         
-        {/* Saat akrebi - daha kısa ve kalın */}
+        {/* Saat akrebi - kısa ve kalın */}
         <div
           style={{
             position: 'absolute',
             width: '4px',
-            height: '18px',
+            height: '20px',
             backgroundColor: '#333',
             left: '50%',
-            top: '42px',
+            top: '50%',
             transformOrigin: '50% 0',
-            transform: `rotate(${hourAngle}deg) translateX(-50%)`
+            transform: `translateX(-50%) rotate(${hourAngle}deg)`
           }}
         />
         
-        {/* Dakika akrebi - daha uzun ve ince */}
+        {/* Dakika akrebi - uzun ve ince */}
         <div
           style={{
             position: 'absolute',
             width: '2px',
-            height: '28px',
+            height: '30px',
             backgroundColor: '#333',
             left: '50%',
-            top: '32px',
+            top: '50%',
             transformOrigin: '50% 0',
-            transform: `rotate(${minuteAngle}deg) translateX(-50%)`
+            transform: `translateX(-50%) rotate(${minuteAngle}deg)`
           }}
         />
         
@@ -92,9 +89,9 @@ export default function Watch({ city, timezone, onRemove }) {
             height: '32px',
             backgroundColor: '#f00',
             left: '50%',
-            top: '28px',
+            top: '50%',
             transformOrigin: '50% 0',
-            transform: `rotate(${secondAngle}deg) translateX(-50%)`
+            transform: `translateX(-50%) rotate(${secondAngle}deg)`
           }}
         />
         
@@ -113,7 +110,7 @@ export default function Watch({ city, timezone, onRemove }) {
         />
       </div>
       
-      <div style={{ marginTop: '8px', fontWeight: 'bold', textTransform: 'lowercase' }}>{city}</div>
+      <div style={{ marginTop: '8px', fontWeight: 'bold' }}>{city}</div>
       
       <button
         onClick={() => onRemove(city)}
