@@ -9,6 +9,21 @@
       "id": 2,
       "city": "London",
       "timezone": 0
+    },
+    {
+      "id": 3,
+      "city": "Uganda",
+      "timezone": 12
+    },
+    {
+      "id": 4,
+      "city": "test",
+      "timezone": 0
+    },
+    {
+      "id": 5,
+      "city": "test ",
+      "timezone": 5
     }
   ]
 }
